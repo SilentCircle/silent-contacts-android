@@ -1,0 +1,202 @@
+/*
+Copyright © 2013-2014, Silent Circle, LLC.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+    * Any redistribution, use, or modification is done solely for personal 
+      benefit and not for any commercial purpose or for monetary gain
+    * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided with the distribution.
+    * Neither the name Silent Circle nor the names of its contributors may 
+      be used to endorse or promote products derived from this software 
+      without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL SILENT CIRCLE, LLC BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+/*
+ * This  implementation is edited version of original Android sources.
+ */
+
+/*
+ * Copyright (C) 2010 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.silentcircle.contacts.widget;
+
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+
+/**
+ * A subclass of {@link CompositeCursorAdapter} that manages pinned partition headers.
+ */
+public abstract class PinnedHeaderListAdapter extends CompositeCursorAdapter
+        implements PinnedHeaderListView.PinnedHeaderAdapter {
+
+    public static final int PARTITION_HEADER_TYPE = 0;
+
+    private boolean mPinnedPartitionHeadersEnabled;
+    private boolean mHeaderVisibility[];
+
+    public PinnedHeaderListAdapter(Context context) {
+        super(context);
+    }
+
+    public PinnedHeaderListAdapter(Context context, int initialCapacity) {
+        super(context, initialCapacity);
+    }
+
+    public boolean getPinnedPartitionHeadersEnabled() {
+        return mPinnedPartitionHeadersEnabled;
+    }
+
+    public void setPinnedPartitionHeadersEnabled(boolean flag) {
+        this.mPinnedPartitionHeadersEnabled = flag;
+    }
+
+    @Override
+    public int getPinnedHeaderCount() {
+        if (mPinnedPartitionHeadersEnabled) {
+            return getPartitionCount();
+        } else {
+            return 0;
+        }
+    }
+
+    protected boolean isPinnedPartitionHeaderVisible(int partition) {
+        return mPinnedPartitionHeadersEnabled && hasHeader(partition)
+                && !isPartitionEmpty(partition);
+    }
+
+    /**
+     * The default implementation creates the same type of view as a normal
+     * partition header.
+     */
+    @Override
+    public View getPinnedHeaderView(int partition, View convertView, ViewGroup parent) {
+        if (hasHeader(partition)) {
+            View view = null;
+            if (convertView != null) {
+                Integer headerType = (Integer)convertView.getTag();
+                if (headerType != null && headerType == PARTITION_HEADER_TYPE) {
+                    view = convertView;
+                }
+            }
+            if (view == null) {
+                view = newHeaderView(getContext(), partition, null, parent);
+                view.setTag(PARTITION_HEADER_TYPE);
+                view.setFocusable(false);
+                view.setEnabled(false);
+            }
+            bindHeaderView(view, partition, getCursor(partition));
+            return view;
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public void configurePinnedHeaders(PinnedHeaderListView listView) {
+        if (!mPinnedPartitionHeadersEnabled) {
+            return;
+        }
+
+        int size = getPartitionCount();
+
+        // Cache visibility bits, because we will need them several times later on
+        if (mHeaderVisibility == null || mHeaderVisibility.length != size) {
+            mHeaderVisibility = new boolean[size];
+        }
+        for (int i = 0; i < size; i++) {
+            boolean visible = isPinnedPartitionHeaderVisible(i);
+            mHeaderVisibility[i] = visible;
+            if (!visible) {
+                listView.setHeaderInvisible(i, true);
+            }
+        }
+
+        int headerViewsCount = listView.getHeaderViewsCount();
+
+        // Starting at the top, find and pin headers for partitions preceding the visible one(s)
+        int maxTopHeader = -1;
+        int topHeaderHeight = 0;
+        for (int i = 0; i < size; i++) {
+            if (mHeaderVisibility[i]) {
+                int position = listView.getPositionAt(topHeaderHeight) - headerViewsCount;
+                int partition = getPartitionForPosition(position);
+                if (i > partition) {
+                    break;
+                }
+
+                listView.setHeaderPinnedAtTop(i, topHeaderHeight, false);
+                topHeaderHeight += listView.getPinnedHeaderHeight(i);
+                maxTopHeader = i;
+            }
+        }
+
+        // Starting at the bottom, find and pin headers for partitions following the visible one(s)
+        int maxBottomHeader = size;
+        int bottomHeaderHeight = 0;
+        int listHeight = listView.getHeight();
+        for (int i = size; --i > maxTopHeader;) {
+            if (mHeaderVisibility[i]) {
+                int position = listView.getPositionAt(listHeight - bottomHeaderHeight)
+                        - headerViewsCount;
+                if (position < 0) {
+                    break;
+                }
+
+                int partition = getPartitionForPosition(position - 1);
+                if (partition == -1 || i <= partition) {
+                    break;
+                }
+
+                int height = listView.getPinnedHeaderHeight(i);
+                bottomHeaderHeight += height;
+                // Animate the header only if the partition is completely invisible below
+                // the bottom of the view
+                int firstPositionForPartition = getPositionForPartition(i);
+                boolean animate = position < firstPositionForPartition;
+                listView.setHeaderPinnedAtBottom(i, listHeight - bottomHeaderHeight, animate);
+                maxBottomHeader = i;
+            }
+        }
+
+        // Headers in between the top-pinned and bottom-pinned should be hidden
+        for (int i = maxTopHeader + 1; i < maxBottomHeader; i++) {
+            if (mHeaderVisibility[i]) {
+                listView.setHeaderInvisible(i, isPartitionEmpty(i));
+            }
+        }
+    }
+
+    @Override
+    public int getScrollPositionForHeader(int viewIndex) {
+        return getPositionForPartition(viewIndex);
+    }
+}

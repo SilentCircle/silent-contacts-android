@@ -1,0 +1,9 @@
+apply plugin: 'java'
+
+archivesBaseName="SilentContacts-0.1.0"
+sourceCompatibility="1.6"
+targetCompatibility="1.6"
+
+dependencies {
+    compile files(System.getenv()['ANDROID_SDK'] + "/platforms/android-18/android.jar")
+}

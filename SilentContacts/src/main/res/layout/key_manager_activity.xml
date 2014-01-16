@@ -1,0 +1,101 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/keymngr_left_margin"
+                android:layout_marginRight="@dimen/keymngr_right_margin"
+                tools:context=".KeyChainActivity">
+
+    <TextView
+            android:id="@+id/header"
+            android:layout_marginTop="@dimen/keymngr_top_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="24sp"
+            android:text="@string/key_manager"/>
+
+    <EditText
+            android:id="@+id/oldPasswordInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header"
+            android:layout_marginTop="@dimen/keymngr_top_margin"
+            android:hint="@string/password_hint_old"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:tag="oldPassword"
+            android:textSize="16sp"
+            android:visibility="gone"/>
+
+    <EditText
+            android:id="@+id/passwordInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/oldPasswordInput"
+            android:layout_marginTop="@dimen/keymngr_top_margin"
+            android:hint="@string/password_hint"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:tag="password"
+            android:textSize="16sp"/>
+
+    <EditText
+            android:id="@+id/passwordInput2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/passwordInput"
+            android:layout_marginTop="@dimen/keymngr_top_margin"
+            android:hint="@string/password_hint2"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:tag="password2"
+            android:textSize="16sp"
+            android:visibility="gone"/>
+
+    <TextView
+            android:id="@+id/passwordStrength"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/passwordInput2"
+            android:layout_marginTop="@dimen/keymngr_top_margin"
+            android:background="@null"
+            android:textColor="@android:color/white"
+            android:visibility="gone"
+            android:textSize="14sp" />
+
+    <CheckBox
+            android:id="@+id/passwordShow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/passwordStrength"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/keymngr_top_margin"
+            android:onClick="showPasswordCheck"
+            android:visibility="invisible"
+            android:text="@string/show_pw" />
+
+    <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/listView"
+            android:layout_below="@+id/passwordShow"
+            android:layout_alignParentLeft="true"
+            android:layout_above="@+id/lockUnlock"
+            android:layout_marginTop="@dimen/keymngr_top_margin"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lock"
+            android:id="@+id/lockUnlock"
+            android:layout_marginTop="@dimen/keymngr_top_margin"
+            android:layout_marginBottom="@dimen/keymngr_top_margin"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

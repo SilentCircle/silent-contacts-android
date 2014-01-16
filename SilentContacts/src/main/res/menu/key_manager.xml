@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/key_manager_help"
+          android:icon="@drawable/ic_action_help"
+          android:showAsAction="always" />
+
+    <item android:id="@+id/change_password"
+        android:title="@string/change_password"
+        android:showAsAction="never" />
+
+    <item android:id="@+id/backup_store"
+          android:title="@string/backup_store"
+          android:showAsAction="never" />
+
+    <item android:id="@+id/restore_store"
+          android:title="@string/restore_store"
+          android:showAsAction="never" />
+
+</menu>

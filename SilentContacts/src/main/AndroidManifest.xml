@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="com.silentcircle.contacts"
+	android:versionCode="3"
+	android:versionName="1.0.1">
+
+	<uses-sdk
+		android:minSdkVersion="10"
+		android:targetSdkVersion="19"/>
+
+	<permission android:name="com.silentcircle.silentcontacts.permission.READ" android:protectionLevel="signature" android:icon="@drawable/ic_launcher" android:label="@string/permission_read"/>
+	<permission android:name="com.silentcircle.silentcontacts.permission.WRITE" android:protectionLevel="signature" android:icon="@drawable/ic_launcher" android:label="@string/permission_write"/>
+
+	<uses-permission android:name="com.silentcircle.silentcontacts.permission.READ"/>
+	<uses-permission android:name="com.silentcircle.silentcontacts.permission.WRITE"/>
+
+    <permission android:name="com.silentcircle.keymngr.permission.READ_SC_KEY" android:protectionLevel="signature" android:icon="@drawable/ic_launcher"/>
+    <permission android:name="com.silentcircle.keymngr.permission.WRITE_SC_KEY" android:protectionLevel="signature" android:icon="@drawable/ic_launcher" />
+
+    <uses-permission android:name="com.silentcircle.keymngr.permission.READ_SC_KEY"/>
+    <uses-permission android:name="com.silentcircle.keymngr.permission.WRITE_SC_KEY"/>
+
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.NFC" />
+	<uses-permission android:name="android.permission.WAKE_LOCK"/>
+	
+	<application
+		android:allowBackup="true"
+		android:icon="@drawable/ic_launcher"
+		android:label="@string/app_name"
+		android:theme="@style/ScContactsTheme">
+
+		<activity
+			android:name=".activities.ScContactsMainActivity"
+			android:uiOptions="splitActionBarWhenNarrow"
+			android:label="@string/app_name"
+			android:theme="@style/ScContactsTheme">
+
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN"/>
+				<category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+				<data android:mimeType="vnd.android.cursor.dir/com.silentcircle.raw_contact"/>
+			</intent-filter>
+
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+				<category android:name="android.intent.category.BROWSABLE"/>
+				<data android:mimeType="vnd.android.cursor.dir/com.silentcircle.calls"/>
+			</intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.dir/com.silentcircle.raw_contact" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+		<!-- Views the details of a single contact -->
+		<activity
+			android:name=".activities.ScContactDetailActivity"
+			android:label="@string/viewContactTitle"
+			android:parentActivityName="com.silentcircle.contacts.activities.ScContactsMainActivity"
+			android:theme="@style/DetailActivityTheme">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.silentcircle.contacts.activities.ScContactsMainActivity" />
+
+			<intent-filter android:label="@string/viewContactDesription">
+				<action android:name="android.intent.action.VIEW"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+				<data android:mimeType="vnd.android.cursor.item/com.silentcircle.raw_contact"/>
+			</intent-filter>
+
+		</activity>
+
+		<!-- Service to save a contact -->
+		<service
+			android:name=".ScContactSaveService"
+			android:exported="false"/>
+
+		<provider
+			android:name=".providers.ScCallLogProvider"
+			android:authorities="com.silentcircle.calls"
+			android:permission="com.silentcircle.silentcontacts.permission.WRITE"
+            android:initOrder="3"
+			android:enabled="true"
+			android:exported="true"/>
+
+		<provider
+			android:name=".providers.ScContactsProvider"
+			android:authorities="com.silentcircle.contacts"
+			android:writePermission="com.silentcircle.silentcontacts.permission.WRITE"
+            android:readPermission="com.silentcircle.silentcontacts.permission.READ"
+			android:initOrder="4"
+			android:enabled="true"
+            android:grantUriPermissions="true"
+			android:exported="true">
+            <grant-uri-permission android:pathPrefix="/raw_contacts/as_vcard/" />
+        </provider>
+
+		<activity android:name=".activities.ScContactSelectionActivity"
+            android:label="@string/contactsList"
+            android:theme="@style/ContactPickerTheme"
+            android:launchMode="singleTop"
+            android:clearTaskOnLaunch="true"
+            android:uiOptions="splitActionBarWhenNarrow">
+
+            <intent-filter>
+                <action android:name="android.intent.action.INSERT_OR_EDIT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="vnd.android.cursor.item/com.silentcircle.raw_contact"/>
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.PICK"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="vnd.android.cursor.dir/com.silentcircle.raw_contact"/>
+                <data android:mimeType="vnd.android.cursor.dir/com.silentcircle.phone_v2"/>
+                <data android:mimeType="vnd.android.cursor.dir/com.silentcircle.postal-address_v2"/>
+                <data android:mimeType="vnd.android.cursor.dir/com.silentcircle.email_v2"/>
+            </intent-filter>
+
+		</activity>
+
+        <activity
+                android:name=".activities.ScShowOrCreateActivity"
+                android:permission="com.silentcircle.silentcontacts.permission.WRITE"
+                android:theme="@style/ScContactsTheme">
+
+            <intent-filter>
+                <action android:name="com.silentcircle.silentcontacts.action.SHOW_OR_CREATE_CONTACT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="mailto" />
+                <data android:scheme="silenttel" />
+                <data android:scheme="imto" />
+            </intent-filter>
+        </activity>
+
+        <!-- Create a new or edit an existing contact -->
+		<activity
+			android:name=".activities.ScContactEditorActivity"
+			android:theme="@style/EditorActivityTheme"
+			android:windowSoftInputMode="adjustResize">
+
+			<intent-filter android:label="@string/editContactDescription">
+				<action android:name="android.intent.action.EDIT"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+				<data android:mimeType="vnd.android.cursor.item/com.silentcircle.raw_contact"/>
+			</intent-filter>
+
+			<intent-filter android:label="@string/insertContactDescription">
+				<action android:name="android.intent.action.INSERT"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+				<data android:mimeType="vnd.android.cursor.dir/com.silentcircle.raw_contact"/>
+			</intent-filter>
+
+		</activity>
+
+        <activity
+            android:name=".quickcontact.QuickContactActivity"
+            android:theme="@style/Theme.QuickContact"
+            android:launchMode="singleTop"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:taskAffinity=""
+            android:windowSoftInputMode="stateUnchanged">
+
+            <intent-filter>
+                <action android:name="com.silentcircle.silentcontacts.action.QUICK_CONTACT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.silentcircle.raw_contact" />
+            </intent-filter>
+        </activity>
+
+        <activity
+			android:name=".ScCallDetailActivity"
+			android:label="@string/callDetailTitle"
+			android:screenOrientation="portrait"
+			android:theme="@style/ScContactsTheme">
+
+			<!--
+             @style/CallDetailActivityTheme"
+            android:icon="@mipmap/ic_launcher_phone"
+			-->
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW"/>
+
+				<category android:name="android.intent.category.DEFAULT"/>
+
+				<data android:mimeType="vnd.android.cursor.item/com.silentcircle.calls"/>
+			</intent-filter>
+		</activity>
+
+		<!-- Confirm that a single detail will be added to an existing contact -->
+        <activity
+            android:name=".activities.ConfirmAddDetailActivity"
+            android:label="@string/activity_title_confirm_add_detail"
+            android:theme="@style/ScContactsTheme"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false"/>
+
+        <!-- Group related activities -->
+        <!-- Views the details of a single group -->
+        <activity android:name=".activities.GroupDetailActivity"
+            android:label=""
+            android:theme="@style/ScContactsTheme"/>
+
+        <!-- Create a new or edit an existing group -->
+        <activity
+            android:name=".activities.GroupEditorActivity"
+            android:theme="@style/ScContactsTheme"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <!-- Used to set options -->
+        <activity
+            android:name=".preference.ContactsPreferenceActivity"
+            android:label="@string/activity_title_settings"
+            android:theme="@style/ScContactsTheme"/>
+
+        <!-- vCard related -->
+        <activity android:name=".vcard.ImportVCardActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="nosensor"
+            android:theme="@style/ScContactsTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:mimeType="text/x-silentvcard"/>
+                <data android:mimeType="text/x-vcard"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".vcard.CancelActivity"
+            android:theme="@style/ScContactsTheme"/>
+<!--
+        <activity android:name=".vcard.SelectAccountActivity"
+            android:theme="@style/ScContactsTheme"/>
+-->
+        <activity android:name=".vcard.ExportVCardActivity"
+            android:theme="@style/ScContactsTheme"/>
+
+        <activity android:name=".vcard.ManageVCardActivity"
+                  android:theme="@style/ScContactsTheme"/>
+
+        <service
+            android:name=".vcard.VCardService"
+            android:exported="false"/>
+
+        <activity android:name=".vcard.NfcImportVCardActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:theme="@style/ScContactsTheme">
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                <data android:mimeType="text/x-silentvcard" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <receiver android:name=".providers.LocaleChangeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+
+
+        <!-- Activity, provider, and service of Silent Circle KeyManager -->
+        <activity
+                android:name="com.silentcircle.keymngr.KeyManagerActivity"
+                android:label="@string/app_name_km"
+                android:icon="@drawable/ic_launcher_km"
+                android:taskAffinity="com.silentcircle.keymngr.KeyManagerActivity"
+                android:windowSoftInputMode="stateHidden|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.silentcircle.keymngr.action.READY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <provider
+                android:name="com.silentcircle.keymngr.ProviderDbBackend"
+                android:authorities="com.silentcircle.keymngr"
+                android:permission="com.silentcircle.keymngr.permission.WRITE_SC_KEY"
+                android:initOrder="1"
+                android:enabled="true"
+                android:exported="true"/>
+
+        <service android:name="com.silentcircle.keymngr.KeyService"/>
+
+        <provider
+                android:name="com.silentcircle.keymngrsupport.SupportProvider"
+                android:authorities="com.silentcircle.contacts.keymngrsupport"
+                android:permission="com.silentcircle.keymngr.permission.WRITE_SC_KEY"
+                android:initOrder="2"
+                android:enabled="true"
+                android:exported="true"/>
+
+        <provider
+                android:name="android.support.v4.content.FileProvider"
+                android:authorities="com.silentcircle.contacts.files"
+                android:grantUriPermissions="true"
+                android:exported="false">
+                <meta-data
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/KeyManagerSupport/KeyManagerSupport.iml" filepath="$PROJECT_DIR$/KeyManagerSupport/KeyManagerSupport.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ScContactsContract/ScContactsContract.iml" filepath="$PROJECT_DIR$/ScContactsContract/ScContactsContract.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SilentContacts/SilentContacts.iml" filepath="$PROJECT_DIR$/SilentContacts/SilentContacts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SilentContactsProject.iml" filepath="$PROJECT_DIR$/SilentContactsProject.iml" />
+    </modules>
+  </component>
+</project>
+

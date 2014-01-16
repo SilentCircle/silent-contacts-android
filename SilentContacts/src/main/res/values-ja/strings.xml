@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2011 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Modifications: Copyright (C) 2013 Silent Circle LLC
+  -->
+
+<resources>
+    <!-- MISSING -->
+    <string name="app_name">Silent Contacts</string>
+
+    <!-- MISSING -->
+    <string name="alternate_title">"SilentContacts - SilentCircle's contact application"</string>
+
+    <string name="recentCallsIconLabel">"通話履歴"</string>
+    <string name="recentCalls_addToContact">"連絡先に追加"</string>
+    <string name="recentCalls_empty">"通話履歴なし"</string>
+    <string name="recentCalls_deleteAll">"通話履歴を全件消去"</string>
+    <string name="recentCalls_callNumber">"%sに発信"</string>
+    <string name="recentCalls_editNumberBeforeCall">"発信前に番号を編集"</string>
+    <string name="recentCalls_removeFromRecentList">"通話履歴から消去"</string>
+    <!-- MISSING -->
+    <string name="recentCalls_removeSameFromRecentList">Remove related entries</string>
+
+    <string name="type_incoming">"通話着信"</string>
+    <string name="type_outgoing">"発信履歴"</string>
+    <string name="type_missed">"不在着信"</string>
+    <string name="callDetailTitle">"通話詳細"</string>
+    <string name="menu_show_outgoing_only">"発信のみを表示"</string>
+    <string name="menu_show_incoming_only">"着信のみを表示"</string>
+    <string name="menu_show_missed_only">"不在着信のみを表示"</string>
+    <string name="menu_show_all_calls">"すべての通話を表示"</string>
+    <string name="menu_callNumber">"%sに発信"</string>
+    <string name="unknown">"通知不可能"</string>
+    <string name="private_num">"非通知"</string>
+    <string name="payphone">"公衆電話発信"</string>
+    <string name="call_log_empty_gecode">"-"</string>
+    <string name="call_log_new_header">"新しい着信"</string>
+    <string name="call_log_old_header">"以前の着信"</string>
+    <string name="call_log_incoming_header">"着信のみ"</string>
+    <string name="call_log_outgoing_header">"発信のみ"</string>
+    <string name="call_log_missed_header">"不在着信のみ"</string>
+    <string name="call_log_item_count_and_date">"（%1$d）%2$s"</string>
+    <string name="callDetailsDurationFormat">"%1$s分%2$s秒"</string>
+    <string name="toast_call_detail_error">"通話要求の詳細が読み込めませんでした。"</string>
+    <string name="description_view_contact">"%1$sの連絡先を表示"</string>
+    <string name="description_add_contact">"連絡先を追加"</string>
+    <string name="clearCallLogProgress_title">"通話履歴を消去しています..."</string>
+    <string name="clearCallLogConfirmation_title">"通話履歴を消しますか？"</string>
+    <string name="clearCallLogConfirmation">"すべての通話記録は削除されます。"</string>
+    <string name="description_send_text_message">"%1$sにテキストメッセージを送信"</string>
+    <string name="description_call">"%1$sに発信"</string>
+    <string name="phoneTypeCustom">"カスタム"</string>
+    <string name="phoneTypeHome">"自宅"</string>
+    <string name="phoneTypeMobile">"携帯"</string>
+    <string name="phoneTypeWork">"勤務先"</string>
+
+    <!-- MISSING -->
+    <string name="phoneTypeSilent">SilentPhone</string>
+
+    <string name="emailTypeCustom">"カスタム"</string>
+    <string name="emailTypeHome">"自宅"</string>
+    <string name="emailTypeWork">"勤務先"</string>
+    <string name="emailTypeOther">"その他"</string>
+    <string name="emailTypeMobile">"携帯"</string>
+    <string name="postalTypeCustom">"カスタム"</string>
+    <string name="postalTypeHome">"自宅"</string>
+    <string name="postalTypeWork">"勤務先"</string>
+    <string name="postalTypeOther">"その他"</string>
+    <string name="imTypeCustom">"カスタム"</string>
+    <string name="imTypeHome">"自宅"</string>
+    <string name="imTypeWork">"勤務先"</string>
+    <string name="imTypeOther">"その他"</string>
+
+    <!-- MISSING -->
+    <string name="imTypeSilent">SilentText</string>
+    <string name="imProtocolCustom">"カスタム"</string>
+    <string name="imProtocolAim">"AIM"</string>
+    <string name="imProtocolMsn">"Windows Live"</string>
+    <string name="imProtocolYahoo">"Yahoo"</string>
+    <string name="imProtocolSkype">"Skype"</string>
+    <string name="imProtocolQq">"QQ"</string>
+    <string name="imProtocolGoogleTalk">"Googleトーク"</string>
+    <string name="imProtocolIcq">"ICQ"</string>
+    <string name="imProtocolJabber">"Jabber"</string>
+    <string name="imProtocolNetMeeting">"NetMeeting"</string>
+
+    <!-- MISSING -->
+    <string name="imProtocolSilent">SilentCircle</string>
+
+    <string name="add_contact_dlg_message_fmt">"%s を連絡先に追加しますか？"</string>
+    <string name="contactsList">"連絡先"</string>
+    <string name="local_invisible_directory">"その他"</string>
+    <string name="local_search_label">"すべての連絡先"</string>
+    <string name="user_profile_contacts_list_header">"自分"</string>
+    <string name="directory_search_label">"ディレクトリ"</string>
+    <string name="search_results_searching">"検索しています&#8230;"</string>
+    <string name="foundTooManyContacts">"%d件以上見つかりました。"</string>
+    <string name="listFoundAllContactsZero">"連絡先はありません"</string>
+    <string name="editContactDescription">"連絡先を編集"</string>
+    <string name="insertContactDescription">"連絡先を新規登録"</string>
+    <plurals name="searchFoundContacts">
+        <item quantity="one">"1件見つかりました"</item>
+        <item quantity="other">"%d件見つかりました"</item>
+    </plurals>
+    <plurals name="listTotalAllContacts">
+        <item quantity="one">"連絡先1件"</item>
+        <item quantity="other">"連絡先%d件"</item>
+    </plurals>
+
+    <string name="no_contact_details">"この連絡先の詳細情報はありません。"</string>
+    <string name="noContactsWithPhoneNumbers">"電話番号付きの連絡先はありません。"</string>
+    <string name="noFavoritesHelpText">"お気に入りはありません。"\n\n"お気に入りのリストに連絡先を追加するには: "\n\n<li>"["<b>"連絡先"</b>"]タブをタップします"\n</li>" "\n<li>"お気に入りに追加する連絡先をタップします"\n</li>" "\n<li>"連絡先名の横にあるスターをタップします"\n</li></string>
+    <string name="noMatchingContacts">"一致する連絡先が見つかりません。"</string>
+    <string name="no_contacts_selected">"連絡先が選択されていません。"</string>
+    <string name="noContactsHelpTextWithSyncForCreateShortcut">"表示する連絡先がありません（アカウントを追加した直後の場合は、連絡先の同期に数分かかることがあります）。"</string>
+    <string name="noContactsHelpTextWithSync">"表示できる連絡先がありません（アカウントを追加した直後の場合は、連絡先が同期されるまでに数分かかることがあります）。"\n\n"連絡先を追加するには、"<font fgcolor="#ffffffff"><b>"MENU"</b></font>"キーをタップして次の操作を行います:"\n\n<li>"携帯端末と同期可能な連絡先を使ってアカウントを追加またはセットアップする場合は["<font fgcolor="#ffffffff"><b>"アカウント"</b></font>"]をタップします"\n</li>\n<li>"連絡先の表示方法を変更するには["<font fgcolor="#ffffffff"><b>"表示オプション"</b></font>"]をタップします"\n</li>\n<li>"新しい連絡先を最初から作成する場合は["<font fgcolor="#ffffffff"><b>"連絡先を新規登録"</b></font>"]をタップします"\n</li>\n<li>"SIMカードまたはSDカードから連絡先をインポートする場合は["<font fgcolor="#ffffffff"><b>"インポート/エクスポート"</b></font>"]をタップします"\n</li></string>
+    <string name="noContactsNoSimHelpTextWithSync">"表示できる連絡先がありません（アカウントを追加した直後の場合は、連絡先が同期されるまでに数分かかることがあります）。"\n\n"連絡先を追加するには、"<font fgcolor="#ffffffff"><b>"MENU"</b></font>"キーをタップして次の操作を行います:"\n\n<li>"携帯端末と同期可能な連絡先を使ってアカウントを追加またはセットアップする場合は["<font fgcolor="#ffffffff"><b>"アカウント"</b></font>"]をタップします"\n</li>\n<li>"連絡先の表示方法を変更するには["<font fgcolor="#ffffffff"><b>"表示オプション"</b></font>"]をタップします"\n</li>\n<li>"新しい連絡先を最初から作成する場合は["<font fgcolor="#ffffffff"><b>"連絡先を新規登録"</b></font>"]をタップします"\n</li>\n<li>"SDカードから連絡先をインポートする場合は["<font fgcolor="#ffffffff"><b>"インポート/エクスポート"</b></font>"]をタップします"\n</li></string>
+
+    <string name="noContactsHelpTextForCreateShortcut">"表示する連絡先がありません。"</string>
+
+    <string name="noContactsHelpText">"表示できる連絡先がありません。"\n\n"連絡先を追加するには、"<font fgcolor="#ffffffff"><b>"MENU"</b></font>"キーをタップして次の操作を行います:"\n\n<li>"携帯端末と同期可能な連絡先を使ってアカウントを追加またはセットアップする場合は["<font fgcolor="#ffffffff"><b>"アカウント"</b></font>"]をタップします"\n</li>\n<li>"新しい連絡先を最初から作成する場合は["<font fgcolor="#ffffffff"><b>"連絡先を新規登録"</b></font>"]をタップします"\n</li>\n<li>"SIMカードまたはSDカードから連絡先をインポートする場合は["<font fgcolor="#ffffffff"><b>"インポート/エクスポート"</b></font>"]をタップします"\n</li></string>
+
+    <string name="noContactsNoSimHelpText">"表示できる連絡先がありません。"\n\n"連絡先を追加するには、"<font fgcolor="#ffffffff"><b>"MENU"</b></font>"キーをタップして次の操作を行います:"\n\n<li>"携帯端末と同期可能な連絡先を使ってアカウントを追加またはセットアップする場合は["<font fgcolor="#ffffffff"><b>"アカウント"</b></font>"]をタップします"\n</li>\n<li>"新しい連絡先を最初から作成する場合は["<font fgcolor="#ffffffff"><b>"連絡先を新規登録"</b></font>"]をタップします"\n</li>\n<li>"SDカードから連絡先をインポートする場合は["<font fgcolor="#ffffffff"><b>"インポート/エクスポート"</b></font>"]をタップします"\n</li></string>
+
+    <string name="missing_name">"（名前なし）"</string>
+    <string name="menu_done">"完了"</string>
+    <string name="menu_doNotSave">"キャンセル"</string>
+    <string name="profile_display_name">"プロフィールを設定"</string>
+    <string name="listTotalAllContactsZero">"連絡先はありません。"</string>
+    <string name="listTotalAllContactsZeroCustom">"表示できる連絡先はありません。"</string>
+    <string name="listTotalAllContactsZeroStarred">"お気に入りはありません。"</string>
+    <string name="listTotalAllContactsZeroGroup">"%sの連絡先はありません"</string>
+    <string name="listTotalPhoneContactsZero">"電話番号付きの連絡先はありません"</string>
+    <string name="menu_search">"検索"</string>
+    <string name="menu_new_contact_action_bar">"新規"</string>
+    <string name="menu_new_group_action_bar">"新規"</string>
+    <string name="menu_accounts">"アカウント"</string>
+    <string name="menu_clear_frequents">"よく使う連絡先のクリア"</string>
+    <string name="menu_contacts_filter">"表示する連絡先"</string>
+    <string name="menu_import_export">"インポート/エクスポート"</string>
+    <!-- MISSING -->
+    <string name="menu_remove_vcard_files">Remove vCards</string>
+
+    <string name="menu_export_database">"データベースファイルをエクスポート"</string>
+    <string name="menu_settings">"設定"</string>
+    <string name="menu_help">"ヘルプ"</string>
+    <!-- MISSING -->
+    <string name="menu_about">About</string>
+
+    <string name="hint_findContacts">"連絡先を検索"</string>
+    <string name="contactsAllLabel">"すべての連絡先"</string>
+    <string name="contactsGroupsLabel">"グループ"</string>
+    <string name="contactsFavoritesLabel">"お気入り"</string>
+    <string name="viewContactDesription">"連絡先を表示"</string>
+    <string name="viewContactTitle">"連絡先情報"</string>
+    <string name="account_phone">"タブレットのみ（非同期）"</string>
+    <string name="view_updates_from_group">"更新情報を表示"</string>
+    <string name="customLabelPickerTitle">"新しいラベル名"</string>
+    <!-- MISSING -->
+    <string name="expand_collapse_name_fields_description">Expand or collapse name fields</string>
+
+    <string name="description_minus_button">"削除"</string>
+    <string name="description_contact_photo">"連絡先の写真"</string>
+    <string name="nameLabelsGroup">"名前"</string>
+    <string name="nicknameLabelsGroup">"ニックネーム"</string>
+    <string name="organizationLabelsGroup">"所属"</string>
+    <string name="groupsLabel">"グループ"</string>
+    <string name="full_name">"名前"</string>
+    <string name="name_given">"名"</string>
+    <string name="name_family">"姓"</string>
+    <string name="name_prefix">"敬称（名前の前）"</string>
+    <string name="name_middle">"ミドルネーム"</string>
+    <string name="name_suffix">"敬称（名前の後）"</string>
+    <string name="name_phonetic_given">"名のよみがな"</string>
+    <string name="name_phonetic_middle">"ミドルネームのよみがな"</string>
+    <string name="name_phonetic_family">"姓のよみがな"</string>
+    <string name="name_phonetic">"よみがな"</string>
+    <string name="recent">"最近"</string>
+    <string name="postal_address">"住所"</string>
+    <string name="postal_street">"番地"</string>
+    <string name="postal_pobox">"私書箱"</string>
+    <string name="postal_neighborhood">"街区 (中国等で使用)"</string>
+    <string name="postal_city">"市区町村"</string>
+    <string name="postal_region">"都道府県"</string>
+    <string name="postal_postcode">"郵便番号"</string>
+    <string name="postal_country">"国"</string>
+    <string name="phoneLabelsGroup">"電話番号"</string>
+    <string name="emailLabelsGroup">"メール"</string>
+    <string name="imLabelsGroup">"チャット"</string>
+    <string name="postalLabelsGroup">"住所"</string>
+    <string name="sms">"テキストメッセージ"</string>
+    <string name="label_notes">"メモ"</string>
+    <string name="label_sip_address">"インターネット通話"</string>
+    <string name="ghostData_company">"会社"</string>
+    <string name="ghostData_title">"役職"</string>
+    <string name="call_custom">"%sに発信"</string>
+    <string name="call_home">"自宅に発信"</string>
+    <string name="call_mobile">"携帯電話に発信"</string>
+    <string name="call_work">"勤務先に発信"</string>
+    <!-- MISSING -->
+    <string name="call_silent">Call SilentPhone</string>
+
+    <string name="call_fax_work">"勤務先FAXに発信"</string>
+    <string name="call_fax_home">"自宅のFAXに発信"</string>
+    <string name="call_pager">"ポケベルに発信"</string>
+    <string name="call_other">"発信"</string>
+    <string name="call_callback">"コールバック先に発信"</string>
+    <string name="call_car">"クルマに発信"</string>
+    <string name="call_company_main">"会社代表番号に発信"</string>
+    <string name="call_isdn">"ISDNに発信"</string>
+    <string name="call_main">"電話番号1に発信"</string>
+    <string name="call_other_fax">"FAXに電話"</string>
+    <string name="call_radio">"無線に発信"</string>
+    <string name="call_telex">"テレックスに発信"</string>
+    <string name="call_tty_tdd">"TTY/TDDに発信"</string>
+    <string name="call_work_mobile">"携帯電話（勤務先）に発信"</string>
+    <string name="call_work_pager">"ポケベル（勤務先）に発信"</string>
+    <string name="call_assistant">"%sに発信"</string>
+    <string name="call_mms">"MMSに発信"</string>
+    <string name="sms_custom">"%sにSMS"</string>
+    <string name="sms_home">"自宅にSMS"</string>
+    <string name="sms_mobile">"携帯にSMS"</string>
+    <string name="sms_work">"勤務先にSMS"</string>
+    <string name="sms_fax_work">"勤務先FAXにSMS"</string>
+    <string name="sms_fax_home">"自宅FAXにSMS"</string>
+    <string name="sms_pager">"ポケベルにSMS"</string>
+    <string name="sms_other">"電話にSMS"</string>
+    <string name="sms_callback">"コールバック先にSMS"</string>
+    <string name="sms_car">"クルマにSMS"</string>
+    <string name="sms_company_main">"会社代表番号にSMS"</string>
+    <string name="sms_isdn">"ISDNにSMS"</string>
+    <string name="sms_main">"電話番号1にSMS"</string>
+    <string name="sms_other_fax">"FAXにSMS"</string>
+    <string name="sms_radio">"無線にSMS"</string>
+    <string name="sms_telex">"テレックスにSMS"</string>
+    <string name="sms_tty_tdd">"TTY/TDDにSMS"</string>
+    <string name="sms_work_mobile">"携帯電話（勤務先）にSMS"</string>
+    <string name="sms_work_pager">"ポケベル（勤務先)にSMS"</string>
+    <string name="sms_assistant">"%sにSMS"</string>
+    <string name="sms_mms">"MMSにSMS"</string>
+    <string name="email_home">"自宅にメール"</string>
+    <string name="email_mobile">"携帯電話にメール"</string>
+    <string name="email_work">"勤務先にメール"</string>
+    <string name="email_other">"メール送信"</string>
+    <string name="email_custom">"%sにメール"</string>
+    <string name="email">"メール"</string>
+    <string name="map_home">"自宅の住所を表示"</string>
+    <string name="map_work">"勤務先の住所を表示"</string>
+    <string name="map_other">"住所を表示"</string>
+    <string name="map_custom">"%sの住所を表示"</string>
+
+    <!-- MISSING -->
+    <string name="chat_silent">Chat using SilentText</string>
+
+    <string name="chat_aim">"AIMでチャット"</string>
+    <string name="chat_msn">"Windows Liveでチャット"</string>
+    <string name="chat_yahoo">"Yahooでチャット"</string>
+    <string name="chat_skype">"Skypeでチャット"</string>
+    <string name="chat_qq">"QQでチャット"</string>
+    <string name="chat_gtalk">"Googleトークでチャット"</string>
+    <string name="chat_icq">"ICQでチャット"</string>
+    <string name="chat_jabber">"Jabberでチャット"</string>
+    <string name="chat">"チャット"</string>
+    <string name="audio_chat">"ボイスチャット"</string>
+    <string name="video_chat">"ビデオチャット"</string>
+    <string name="contact_status_update_attribution">"%1$s経由"</string>
+    <string name="contact_status_update_attribution_with_date">"%1$s、%2$s経由"</string>
+    <string name="contact_directory_description">"ディレクトリ%1$s"</string>
+    <string name="organization_company_and_title">"%2$s、%1$s"</string>
+    <string name="menu_addStar">"お気に入りに追加"</string>
+    <string name="menu_removeStar">"お気に入りから削除"</string>
+    <string name="toast_text_copied">"テキストをコピーしました"</string>
+    <string name="copy_text">"クリップボードにコピー"</string>
+    <string name="set_default">"デフォルトに設定"</string>
+    <string name="clear_default">"デフォルトを解除"</string>
+    <string name="contactDetailAbout">"概要"</string>
+    <string name="contactDetailUpdates">"最新情報"</string>
+    <string name="add_connection_button">"連絡先を招待"</string>
+    <string name="noContacts">"連絡先がありません。"</string>
+    <string name="contacts_unavailable_create_contact">"新しい連絡先を作成"</string>
+    <string name="contacts_unavailable_import_contacts">"連絡先をインポート"</string>
+    <string name="upgrade_out_of_memory_uninstall">"一部のアプリケーションをアンインストール"</string>
+    <string name="upgrade_out_of_memory_retry">"アップグレードを再試行"</string>
+    <string name="locale_change_in_progress">"言語の変更に伴い連絡先リストを更新しています。"</string>
+    <string name="upgrade_in_progress">"連絡先リストを更新しています。"</string>
+    <string name="upgrade_out_of_memory">"連絡先をアップグレードしています。"\n\n"アップグレード処理には約%sMBの内部ストレージが必要です。"\n\n"次のいずれかのオプションを選択してください:"</string>
+    <string name="menu_editContact">"編集"</string>
+    <string name="menu_deleteContact">"削除"</string>
+    <string name="menu_set_ring_tone">"着信音を設定"</string>
+    <string name="menu_create_contact_shortcut">"ホーム画面に配置"</string>
+    <string name="menu_share">"共有"</string>
+    <string name="toast_making_personal_copy">"個人用コピーを作成しています&#8230;"</string>
+    <string name="photoPickerNotFoundText">"タブレット内に写真がありません。"</string>
+    <string name="take_photo">"写真を撮影"</string>
+    <string name="take_new_photo">"新しい写真を撮る"</string>
+    <string name="pick_photo">"ギャラリーから画像を選ぶ"</string>
+    <string name="pick_new_photo">"ギャラリーから新しい写真を選ぶ"</string>
+    <string name="removePhoto">"写真を削除"</string>
+    <string name="use_photo_as_primary">"この写真を使用"</string>
+    <string name="add_new_entry_for_section">"新しく追加"</string>
+    <string name="add_organization">"所属を追加"</string>
+    <string name="add_field">"別のフィールドを追加"</string>
+    <string name="edit_contact">"連絡先の編集"</string>
+    <string name="menu_discard">"キャンセル"</string>
+    <string name="cancel_confirmation_dialog_message">"変更を破棄しますか？"</string>
+    <string name="contactSavedToast">"連絡先を保存しました。"</string>
+    <string name="contactSavedErrorToast">"連絡先の変更を保存できませんでした。"</string>
+    <string name="readOnlyContactWarning">"読み取り専用アカウントの連絡先は削除できません。ただし、連絡先リストで非表示にすることができます。"</string>
+    <string name="readOnlyContactDeleteConfirmation">"この連絡先には、複数のアカウント情報が含まれています。読み取り専用アカウントの情報を連絡先リストで非表示にすることはできますが、削除はできません。"</string>
+    <string name="multipleContactDeleteConfirmation">"この連絡先を削除すると、複数のアカウント情報が削除されます。"</string>
+    <string name="deleteConfirmation">"この連絡先を削除します。"</string>
+    <string name="shortcutActivityTitle">"連絡先ショートカットを選択"</string>
+    <string name="callShortcutActivityTitle">"発信する番号の選択"</string>
+    <string name="messageShortcutActivityTitle">"メッセージを送る番号の選択"</string>
+    <string name="contactPickerActivityTitle">"連絡先を選択"</string>
+    <string name="pickerNewContactText">"新しい連絡先を作成"</string>
+    <string name="pickerNewContactHeader">"連絡先を新規登録"</string>
+    <string name="share_via">"連絡先の共有ツール"</string>
+    <string name="list_filter_phones">"電話番号のあるすべての連絡先"</string>
+    <string name="contact_read_only">"このアプリからは編集できません。"</string>
+    <string name="savingContact">"連絡先を保存しています&#8230;"</string>
+    <string name="activity_title_confirm_add_detail">"連絡先に追加"</string>
+    <string name="display_options_sort_list_by">"並び替え順"</string>
+    <string name="display_options_view_names_as">"名前の表示形式"</string>
+    <string name="display_options_view_given_name_first">"名が先"</string>
+    <string name="display_options_view_family_name_first">"姓が先"</string>
+    <string name="display_options_sort_by_given_name">"名"</string>
+    <string name="display_options_sort_by_family_name">"姓"</string>
+    <string name="activity_title_settings">"設定"</string>
+    <string name="no_sdcard_message">"ストレージはありませんでした。"</string>
+    <string name="dialog_import_export">"連絡先のインポート/エクスポート"</string>
+    <string name="dialog_import">"連絡先のインポート"</string>
+    <string name="share_error">"この連絡先は共有できません。"</string>
+    <string name="import_from_sdcard">"ストレージからインポート"</string>
+    <string name="export_to_sdcard">"ストレージにエクスポート"</string>
+    <string name="share_visible_contacts">"表示可能な連絡先を共有"</string>
+    <string name="import_one_vcard_string">"vCardファイルを1つインポート"</string>
+    <string name="import_multiple_vcard_string">"複数のvCardファイルをインポート"</string>
+    <string name="import_all_vcard_string">"すべてのvCardファイルをインポート"</string>
+    <string name="searching_vcard_message">"ストレージ内でvCardデータを検索しています&#8230;"</string>
+    <string name="scanning_sdcard_failed_message">"ストレージをスキャンできませんでした（理由: 「%s」）。"</string>
+    <string name="fail_reason_io_error">"送受信エラー"</string>
+    <string name="fail_reason_low_memory_during_import">"メモリが不足しています。ファイルが大きすぎる可能性があります。"</string>
+    <string name="fail_reason_vcard_parse_error">"予期しない理由によりvCardを解析できませんでした。"</string>
+    <string name="fail_reason_not_supported">"このフォーマットには対応していません。"</string>
+    <string name="vcard_import_failed">"vCardをインポートできませんでした。"</string>
+    <string name="import_failure_no_vcard_file">"ストレージ内にvCardファイルが見つかりません。"</string>
+    <string name="fail_reason_failed_to_collect_vcard_meta_info">"指定されたvCardファイルのメタ情報を取得できませんでした。"</string>
+    <string name="fail_reason_failed_to_read_files">"1つ以上のファイルをインポートできませんでした（%s）。"</string>
+    <string name="fail_reason_unknown">"不明なエラーです。"</string>
+    <string name="select_vcard_title">"vCardファイルを選択"</string>
+
+    <!-- MISSING -->
+    <string name="select_vcard_title_remove">Remove vCard file</string>
+
+    <string name="caching_vcard_title">"キャッシュしています"</string>
+    <string name="caching_vcard_message">"vCardをローカル一時ストレージにキャッシュしています。まもなくインポート処理を開始します。"</string>
+    <string name="progress_notifier_message">"%1$s/%2$s件（%3$s）をインポート中"</string>
+    <string name="importing_vcard_description">"%sをインポート中"</string>
+    <string name="reading_vcard_failed_title">"vCardデータを読み取れませんでした"</string>
+    <string name="reading_vcard_canceled_title">"vCardデータの読取をキャンセルしました"</string>
+    <string name="importing_vcard_finished_title">"vCard%sのインポートが終了しました"</string>
+    <string name="importing_vcard_canceled_title">"%sのインポートをキャンセルしました"</string>
+    <string name="vcard_import_will_start_message">"%sはまもなくインポートされます。"</string>
+    <string name="vcard_import_will_start_message_with_default_name">"ファイルはまもなくインポートされます。"</string>
+    <string name="vcard_import_request_rejected_message">"vCardのインポートリクエストは拒否されました。しばらくしてからもう一度お試しください。"</string>
+    <string name="vcard_export_will_start_message">"%sはまもなくエクスポートされます。"</string>
+    <string name="vcard_export_request_rejected_message">"vCardのエクスポートリクエストは拒否されました。しばらくしてからもう一度お試しください。"</string>
+    <string name="vcard_unknown_filename">"連絡先"</string>
+    <string name="percentage">"%s%%"</string>
+    <string name="confirm_export_title">"エクスポートしますか？"</string>
+    <string name="confirm_export_message">"連絡先リストをファイル「%s」にエクスポートします。"</string>
+    <string name="exporting_contact_failed_title">"エクスポート失敗"</string>
+    <string name="exporting_contact_failed_message">"連絡先データはエクスポートされませんでした。"\n"理由: 「%s」"</string>
+    <string name="fail_reason_no_exportable_contact">"エクスポートできる連絡先がありません。"</string>
+    <string name="fail_reason_too_many_vcard">"ストレージ内のvCardファイルが多すぎます。"</string>
+    <string name="fail_reason_too_long_filename">"ファイル名（必須）が長すぎます（「%s」）。"</string>
+    <string name="exporting_vcard_finished_title">"%sのエクスポートが完了しました。"</string>
+    <string name="exporting_vcard_canceled_title">"%sのエクスポートをキャンセルしました。"</string>
+    <string name="exporting_contact_list_title">"連絡先データのエクスポート"</string>
+    <string name="exporting_contact_list_message">"連絡先データを%sにエクスポートします。"</string>
+    <string name="fail_reason_could_not_initialize_exporter">"エクスポータを起動できませんでした: 「%s」。"</string>
+    <string name="fail_reason_error_occurred_during_export">"エクスポート中にエラーが発生しました: 「%s」。"</string>
+    <string name="composer_failed_to_get_database_infomation">"データベース情報を取得できませんでした。"</string>
+    <string name="composer_has_no_exportable_contact">"エクスポートできる連絡先がありません。タブレットに連絡先がある場合でも、データプロバイダによってはタブレットから連絡先をエクスポートできないことがあります。"</string>
+    <string name="composer_not_initialized">"vCardコンポーザーが正しく起動しませんでした。"</string>
+    <string name="fail_reason_could_not_open_file">"「%1$s」を開けませんでした: %1$s。"</string>
+    <string name="exporting_contact_list_progress">"%1$s/%2$s件のファイル"</string>
+    <string name="cancel_import_confirmation_message">"%sのインポートをキャンセルしますか？"</string>
+    <string name="cancel_export_confirmation_message">"%sのエクスポートをキャンセルしますか？"</string>
+    <string name="nfc_vcard_file_name">"NFC受信の連絡先"</string>
+    <string name="cancel_vcard_import_or_export_failed">"vCardインポート/エクスポート取り消し不可"</string>
+    <string name="group_read_only">"この端末では編集できません。"</string>
+    <string name="group_name_hint">"グループの名前"</string>
+    <string name="enter_contact_name">"名前を入力"</string>
+    <string name="groupSavedToast">"グループを保存しました。"</string>
+    <string name="groupSavedErrorToast">"グループの変更を保存できませんでした。"</string>
+    <string name="emptyGroup">"このグループにはメンバーがいません。"</string>
+    <string name="addPeopleToGroup">"メンバーを追加するにはグループを編集します。"</string>
+    <string name="menu_editGroup">"編集"</string>
+    <string name="menu_deleteGroup">"削除"</string>
+    <plurals name="num_contacts_in_group">
+        <item quantity="one">"%2$sから%1$d人"</item>
+        <item quantity="other">"%2$sから%1$d人"</item>
+    </plurals>
+    <string name="favoritesFrequentContacted">"よく使う連絡先"</string>
+    <string name="favoritesFrequentCalled">"よく使う連絡先"</string>
+    <string name="description_view_contact_detail">"連絡先を表示"</string>
+    <string name="delete_group_dialog_message">"グループ「%1$s」を削除しますか？連絡先自体は削除されません。"</string>
+    <plurals name="group_list_num_contacts_in_group">
+        <item quantity="one">"%1$d人"</item>
+        <item quantity="other">"%1$d人"</item>
+    </plurals>
+    <string name="noGroups">"グループはありません。"</string>
+    <string name="noAccounts">"グループを作成するにはアカウントが必要です。"</string>
+    <string name="create_group_dialog_title">"新しいグループの作成"</string>
+    <string name="contacts_unavailable_add_account">"アカウントにログイン"</string>
+    <string name="group_edit_field_hint_text">"グループ名"</string>
+    <string name="create_group_item_label">"新しいグループを作成"</string>
+    <string name="preference_displayOptions">"表示オプション"</string>
+    <string name="description_send_message">"%1$sさんにメッセージを送信"</string>
+    <string name="description_dial_phone_number">"%1$sさんの電話"</string>
+    <string name="description_quick_contact_for">"%1$sさんのクイックコンタクト"</string>
+    <string name="invalidContactMessage">"連絡先が存在しません。"</string>
+    <string name="quickcontact_missing_app">"この操作を行うアプリが見つかりませんでした。"</string>
+    <string name="recent_updates">"最近の更新"</string>
+    <string name="search_go">"検索"</string>
+    <string name="searchview_description_search">"検索"</string>
+    <string name="searchview_description_query">"検索キーワード"</string>
+    <string name="searchview_description_clear">"検索キーワードを削除"</string>
+    <string name="searchview_description_submit">"検索キーワードを送信"</string>
+    <string name="searchview_description_voice">"音声検索"</string>
+
+</resources>

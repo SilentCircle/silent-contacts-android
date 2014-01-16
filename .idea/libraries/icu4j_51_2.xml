@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="icu4j-51_2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/SilentContacts/libs/icu4j-51_2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
